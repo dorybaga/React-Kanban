@@ -3,42 +3,56 @@
 }
 
 #header {
-  background-color: purple;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 10px;
 }
 
 #addNewTaskBox {
   display: inline-flex;
+  padding-right: 10px;
 
 }
 
 #addNewTaskBtn {
-  background-color: orange;
   height: 50%;
-
 }
 
 .column {
   border: solid .25px;
   flex-direction: column;
 }
+
 .columnName {
   text-align: center;
 }
 
 .queueList {
-  background-color: red;
   width: 100%;
 }
 
 .progressList {
-  background-color: yellow;
   width: 100%;
 }
 
 .doneList {
-  background-color: green;
   width: 100%;
+}
+
+.card {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.cardBody {
+  background-color: red;
+  height: 100%;
+}
+
+.cardFooter {
+  background-color: blue;
 }

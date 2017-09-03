@@ -4,10 +4,10 @@ const Header = () => {
   return (
     <div id="header">
       <div id="appName">
-        <h2>kanban</h2>
+        <h2>KANBAN</h2>
       </div>
       <div id="addNewTaskBox">
-        <button id="addNewTaskBtn">New Task</button>
+        <button id="addNewTaskBtn">+ NEW TASK</button>
       </div>
     </div>
   )
