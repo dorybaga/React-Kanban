@@ -5,7 +5,7 @@ const initialState = { cards: [] };
 const cards = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_CARD:
-      console.log('REDUCER*******', action.book);
+      // console.log('REDUCER*******', action.card);
       return {
         cards: [state.cards, action.card]
       };

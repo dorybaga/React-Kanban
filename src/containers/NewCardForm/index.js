@@ -8,35 +8,35 @@ class NewCardForm extends Component {
 
     this.state = {
       title: '',
-      priority: '',
+      priority: 'low',
       createdBy: '',
       assignedTo: ''
     };
   }
 
   handleChangeTitle(e) {
-    console.log('HANDLING TITLE CHANGE', e.target.value);
+    // console.log('HANDLING TITLE CHANGE', e.target.value);
     this.setState({
       title: e.target.value
     });
   }
 
   handleChangePriorityStatus(e) {
-    console.log('HANDLING PRIORITY CHANGE', e.target.value);
+    // console.log('HANDLING PRIORITY CHANGE', e.target.value);
     this.setState({
       priority: e.target.value
     });
   }
 
   handleChangeCreatedBy(e) {
-    console.log('HANDLING CREATEDBY CHANGE', e.target.value);
+    // console.log('HANDLING CREATEDBY CHANGE', e.target.value);
     this.setState({
       createdBy: e.target.value
     });
   }
 
   handleChangeAssignedTo(e) {
-    console.log('HANDLING ASSIGNEDTO CHANGE', e.target.value);
+    // console.log('HANDLING ASSIGNEDTO CHANGE', e.target.value);
     this.setState({
       assignedTo: e.target.value
     });
@@ -56,6 +56,7 @@ class NewCardForm extends Component {
     console.log('NEW CARD ***********', newCard);
 
     this.props.addNewCard(newCard);
+
   }
 
 
@@ -72,12 +73,17 @@ class NewCardForm extends Component {
             />
 
           <label htmlFor="priority">priority</label>
-            <input
-              type="text"
-              placeholder="priority level"
-              value={this.state.priority}
-              onChange={this.handleChangePriorityStatus.bind(this)}
-            />
+
+            <select
+            name="priority"
+            value={this.state.priority}
+            onChange={this.handleChangePriorityStatus.bind(this)}
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="blocker">Blocker</option>
+          </select>
 
           <label htmlFor="createdBy">created by</label>
             <input
