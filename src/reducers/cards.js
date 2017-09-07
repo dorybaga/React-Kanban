@@ -1,17 +1,14 @@
 import { ADD_NEW_CARD } from '../actions/Cards.js';
 
-const initialState = { cards: [] };
+const initialState = [];
 
 const cards = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_CARD:
-      // console.log('REDUCER*******', action.card);
-      return {
-        cards: [state.cards, action.card]
-      };
-
-      default:
-        return state;
+      console.log('REDUCER*******', action.card);
+      return [...state, action.card];
+    default:
+      return state;
   }
 };
 

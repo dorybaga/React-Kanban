@@ -3,10 +3,13 @@ import QueueList from './QueueList.js';
 import ProgressList from './ProgressList.js';
 import DoneList from './DoneList';
 
-const Body = () => {
+const Body = ({ cards }) => {
+  console.log(cards);
   return (
     <div id="main">
-      <QueueList />
+      <QueueList
+        cards={cards}
+      />
       <ProgressList />
       <DoneList />
     </div>

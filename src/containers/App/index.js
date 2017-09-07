@@ -7,16 +7,39 @@ import Body from '../../components/Body.js';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state= {
+
+    }
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <Header />
         <NewCardForm />
-        <Body />
-
+        <Body
+          cards={this.props.cards}
+        />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    cards: state.cards
+  }
+}
+
+
+
+const ConnectedApp = connect(
+  mapStateToProps
+)(App)
+
+export default ConnectedApp;
+

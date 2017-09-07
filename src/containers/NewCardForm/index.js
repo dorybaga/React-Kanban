@@ -15,33 +15,28 @@ class NewCardForm extends Component {
   }
 
   handleChangeTitle(e) {
-    // console.log('HANDLING TITLE CHANGE', e.target.value);
     this.setState({
       title: e.target.value
     });
   }
 
   handleChangePriorityStatus(e) {
-    // console.log('HANDLING PRIORITY CHANGE', e.target.value);
     this.setState({
       priority: e.target.value
     });
   }
 
   handleChangeCreatedBy(e) {
-    // console.log('HANDLING CREATEDBY CHANGE', e.target.value);
     this.setState({
       createdBy: e.target.value
     });
   }
 
   handleChangeAssignedTo(e) {
-    // console.log('HANDLING ASSIGNEDTO CHANGE', e.target.value);
     this.setState({
       assignedTo: e.target.value
     });
   }
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -56,9 +51,7 @@ class NewCardForm extends Component {
     console.log('NEW CARD ***********', newCard);
 
     this.props.addNewCard(newCard);
-
   }
-
 
   render(){
     return(
