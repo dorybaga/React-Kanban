@@ -43,6 +43,7 @@ class NewCardForm extends Component {
 
     let newCard = {
       title: this.state.title,
+      status: "queue",
       priority: this.state.priority,
       createdBy: this.state.createdBy,
       assignedTo: this.state.assignedTo

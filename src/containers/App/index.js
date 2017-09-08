@@ -4,6 +4,8 @@ import { addNewCard } from '../../actions/Cards.js';
 import NewCardForm from '../NewCardForm';
 import Header from '../../components/Header.js';
 import Body from '../../components/Body.js';
+import getCards from '../../lib/home.js';
+
 import './App.css';
 
 class App extends Component {
@@ -13,6 +15,16 @@ class App extends Component {
     this.state= {
 
     }
+  }
+
+  componentWillMount() {
+   getCards()
+    .then((cards) => {
+      console.log('GETING CARDS****', cards);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
