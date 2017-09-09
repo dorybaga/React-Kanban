@@ -10,7 +10,8 @@ class NewCardForm extends Component {
       title: '',
       priority: 'low',
       createdBy: '',
-      assignedTo: ''
+      assignedTo: '',
+      status: 'queue'
     };
   }
 

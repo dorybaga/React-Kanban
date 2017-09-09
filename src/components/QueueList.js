@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './Card.js';
 
 const QueueList = (props) => {
+  console.log('props from queue', props);
   return (
     <div className="queueList column">
       <h3 className="columnName">
@@ -9,7 +10,11 @@ const QueueList = (props) => {
       </h3>
       <div className="cards_container">
         {
-          props.cards.map( (card) => {
+          props.cards
+          .filter( (card) => {
+            return card.status === "queue"
+          })
+          .map( (card) => {
             return (
               <Card
                 title={card.title}

@@ -13,7 +13,6 @@ export const loadAllCards = () => {
   return (dispatch) => {
     return getCards()
     .then( ({ cards }) => {
-      console.log('before dispatch', cards);
       dispatch({
         type: LOAD_CARDS,
         cards: cards

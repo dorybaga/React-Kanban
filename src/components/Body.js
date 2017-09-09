@@ -9,8 +9,12 @@ const Body = ({ cards }) => {
       <QueueList
         cards={cards}
       />
-      <ProgressList />
-      <DoneList />
+      <ProgressList
+        cards={cards}
+      />
+      <DoneList
+        cards={cards}
+      />
     </div>
   )
 }

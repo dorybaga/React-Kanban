@@ -14,7 +14,6 @@ const cards = (state = initialState, action) => {
       ];
 
     case LOAD_CARDS:
-      console.log('ACTION****', action);
       return [
         ...action.cards
       ];
