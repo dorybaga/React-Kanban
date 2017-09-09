@@ -4,7 +4,6 @@ import ProgressList from './ProgressList.js';
 import DoneList from './DoneList';
 
 const Body = ({ cards }) => {
-  console.log(cards);
   return (
     <div id="main">
       <QueueList

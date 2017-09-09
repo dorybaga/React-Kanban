@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNewCard } from '../../actions/Cards.js';
+
+import {
+  addNewCard,
+  loadAllCards
+} from '../../actions/Cards.js';
+
 import NewCardForm from '../NewCardForm';
 import Header from '../../components/Header.js';
 import Body from '../../components/Body.js';
-import getCards from '../../lib/home.js';
+import getCards from '../../lib/cardsapi.js';
 
 import './App.css';
 
@@ -18,17 +23,10 @@ class App extends Component {
   }
 
   componentWillMount() {
-   getCards()
-    .then((cards) => {
-      console.log('GETING CARDS****', cards);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    this.props.loadAllCards();
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="App">
         <Header />
@@ -47,10 +45,17 @@ const mapStateToProps = (state) => {
   }
 }
 
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadAllCards: () => {
+      dispatch(loadAllCards())
+    }
+  }
+}
 
 const ConnectedApp = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
 
 export default ConnectedApp;

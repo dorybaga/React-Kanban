@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-
+const dummyCards = require('./data/DummyData.js');
 const PORT = process.env.PORT || 8080;
 // const CONFIG = require('/.config/config.json');
 
 // routes api end points
-app.get('/home', (req, res) => {
-  res.send('GOT IT');
+app.get('/api/cards', (req, res) => {
+  res.json(dummyCards);
 });
 
 const server = app.listen(PORT, () => {
