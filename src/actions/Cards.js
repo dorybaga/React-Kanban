@@ -1,6 +1,7 @@
 import getCards from '../lib/cardsapi.js';
 export const ADD_NEW_CARD = 'ADD_NEW_CARD';
 export const LOAD_CARDS = 'LOAD_CARDS';
+export const DELETE_CARD = 'DELETE_CARD';
 
 export const addNewCard = (card) => {
   return {
@@ -18,5 +19,12 @@ export const loadAllCards = () => {
         cards: cards
       });
     });
+  };
+};
+
+export const deleteCard = (card) => {
+  return {
+    type: DELETE_CARD,
+    card
   };
 };

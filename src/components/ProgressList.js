@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './Card.js';
 
 const ProgressList = (props) => {
-  console.log('props from progress', props)
   return (
     <div className="progressList column">
       <h3 className="columnName">

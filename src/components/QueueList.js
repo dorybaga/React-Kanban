@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './Card.js';
 
 const QueueList = (props) => {
-  console.log('props from queue', props);
   return (
     <div className="queueList column">
       <h3 className="columnName">
