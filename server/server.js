@@ -8,7 +8,7 @@ const Task = db.Task;
 
 const PORT = process.env.PORT || 8080;
 
-app.use(bp.urlencoded());
+app.use(bp.json());
 
 
 // routes api end points
@@ -23,6 +23,7 @@ app.get('/api/cards', (req, res) => {
 });
 
 app.post('/api/cards', (req, res) => {
+  console.log('req body****', req.body);
   Task.create({
     title: req.body.title,
     priority: req.body.priority,
@@ -32,6 +33,17 @@ app.post('/api/cards', (req, res) => {
   })
   .then((cards) => {
     res.redirect('/api/cards');
+  });
+});
+
+app.delete('/api/cards', (req, res) => {
+  Task.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .catch((err) => {
+    console.log(err);
   });
 });
 

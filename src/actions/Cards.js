@@ -1,22 +1,28 @@
-import getCards from '../lib/cardsapi.js';
+import {
+  getCardsFromDB,
+  addCardToDB
+} from '../lib/cardsapi.js';
+
 export const ADD_NEW_CARD = 'ADD_NEW_CARD';
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const DELETE_CARD = 'DELETE_CARD';
 
-console.log(getCards);
-
 export const addNewCard = (card) => {
-  return {
-    type: ADD_NEW_CARD,
-    card
+  return (dispatch) => {
+    return addCardToDB(card)
+    .then( (cards) => {
+      dispatch({
+        type: ADD_NEW_CARD,
+        cards: cards
+      });
+    });
   };
 };
 
 export const loadAllCards = () => {
   return (dispatch) => {
-    return getCards()
+    return getCardsFromDB()
     .then( (cards) => {
-      console.log('cards from action', cards);
       dispatch({
         type: LOAD_CARDS,
         cards: cards

@@ -50,7 +50,7 @@ class NewCardForm extends Component {
       assignedTo: this.state.assignedTo
 
     };
-    console.log('NEW CARD ***********', newCard);
+    console.log('NEW CARD ADDED***********', newCard);
 
     this.props.addNewCard(newCard);
   }
@@ -58,7 +58,11 @@ class NewCardForm extends Component {
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form
+          action="/api/cards"
+          method="POST"
+          onSubmit={this.handleSubmit.bind(this)}>
+
           <label htmlFor="title">title</label>
             <input
               type="text"
