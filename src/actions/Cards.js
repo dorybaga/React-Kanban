@@ -1,6 +1,7 @@
 import {
   getCardsFromDB,
-  addCardToDB
+  addCardToDB,
+  deleteCardFromDB
 } from '../lib/cardsapi.js';
 
 export const ADD_NEW_CARD = 'ADD_NEW_CARD';
@@ -32,8 +33,13 @@ export const loadAllCards = () => {
 };
 
 export const deleteCard = (card) => {
-  return {
-    type: DELETE_CARD,
-    card
+  return (dispatch) => {
+    return deleteCardFromDB()
+    .then( (cards) => {
+      dispatch({
+        type: DELETE_CARD,
+        cards
+      });
+    });
   };
 };

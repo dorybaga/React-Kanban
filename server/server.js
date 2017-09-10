@@ -37,10 +37,15 @@ app.post('/api/cards', (req, res) => {
 });
 
 app.delete('/api/cards', (req, res) => {
+  console.log("request", req);
+  console.log("req.params.id", req.params.id);
   Task.destroy({
     where: {
       id: req.params.id
     }
+  })
+  .then((cards) => {
+    res.redirect('/api/cards');
   })
   .catch((err) => {
     console.log(err);

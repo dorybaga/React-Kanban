@@ -15,9 +15,7 @@ const cards = (state = initialState, action) => {
       return action.cards;
 
     case DELETE_CARD:
-      return [
-        ...state
-      ];
+      return action.cards;
 
     default:
       return state;

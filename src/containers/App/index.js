@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 
 import {
   addNewCard,
-  loadAllCards
+  loadAllCards,
+  deleteCard
 } from '../../actions/Cards.js';
 
-import NewCardForm from '../NewCardForm';
 import Header from '../../components/Header.js';
-import Body from '../../components/Body.js';
+import NewCardForm from '../NewCardForm';
+import QueueList from '../../components/QueueList.js'
+import ProgressList from '../../components/ProgressList';
+import DoneList from '../../components/DoneList';
 import getCards from '../../lib/cardsapi.js';
 
 import './App.css';
@@ -26,14 +29,26 @@ class App extends Component {
     this.props.loadAllCards();
   }
 
+  handleDelete(e) {
+    this.props.deleteCard(e.target.id)
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <NewCardForm />
-        <Body
-          cards={this.props.cards}
-        />
+        <div className="body">
+          <QueueList
+            cards={this.props.cards}
+          />
+          <ProgressList
+            cards={this.props.cards}
+          />
+          <DoneList
+            cards={this.props.cards}
+          />
+        </div>
       </div>
     );
   }
@@ -49,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     loadAllCards: () => {
       dispatch(loadAllCards())
+    },
+    deleteCard: (id) => {
+      dispatch(deleteCard(id));
     }
   }
 }
