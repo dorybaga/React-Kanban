@@ -1,9 +1,12 @@
 
-export const getCards = () => {
+const getCards = () => {
   return new Promise((resolve, reject) => {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", function() {
-      resolve(JSON.parse(this.responseText));
+      // console.log(this.responseText);
+      var parseData = JSON.parse(this.responseText);
+      console.log('parseData=', parseData);
+      resolve(parseData);
     });
     oReq.open("GET", "/api/cards");
     oReq.send();
