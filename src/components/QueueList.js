@@ -14,6 +14,7 @@ const QueueList = (props) => {
             return card.status === "queue"
           })
           .map( (card) => {
+            console.log('map cards queue list', card);
             return (
               <Card
                 title={card.title}

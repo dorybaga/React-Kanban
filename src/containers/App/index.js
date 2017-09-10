@@ -30,6 +30,8 @@ class App extends Component {
   }
 
   handleDelete(e) {
+    console.log("handle delete event", e);
+    console.log(this.props.deleteCard());
     this.props.deleteCard(e.target.id)
   }
 
@@ -41,6 +43,7 @@ class App extends Component {
         <div className="body">
           <QueueList
             cards={this.props.cards}
+            handleDelete={this.handleDelete.bind(this)}
           />
           <ProgressList
             cards={this.props.cards}

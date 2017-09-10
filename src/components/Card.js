@@ -1,7 +1,7 @@
 import React from 'react';
 import NewCardForm from '../containers/NewCardForm';
 
-const Card = ({title, priority, createdBy, assignedTo}) => {
+const Card = ({id, title, priority, createdBy, assignedTo, handleDelete}) => {
   return(
     <div className="card">
       <div className="cardBody">
@@ -12,7 +12,12 @@ const Card = ({title, priority, createdBy, assignedTo}) => {
       </div>
       <div className="cardFooter">
         <button className="editCard">Edit</button>
-        <button className="deleteCard">Delete</button>
+        <button
+          className="deleteCard"
+          onClick={handleDelete}
+          id={id}>
+          Delete
+          </button>
         <button className="moveCard">Move</button>
         <div className="createdBy"></div>
       </div>

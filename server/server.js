@@ -23,7 +23,6 @@ app.get('/api/cards', (req, res) => {
 });
 
 app.post('/api/cards', (req, res) => {
-  console.log('req body****', req.body);
   Task.create({
     title: req.body.title,
     priority: req.body.priority,
@@ -36,16 +35,15 @@ app.post('/api/cards', (req, res) => {
   });
 });
 
-app.delete('/api/cards', (req, res) => {
-  console.log("request", req);
-  console.log("req.params.id", req.params.id);
+app.delete('/api/cards/:id', (req, res) => {
   Task.destroy({
     where: {
       id: req.params.id
     }
   })
   .then((cards) => {
-    res.redirect('/api/cards');
+    console.log('successfully deleted!!!!!')
+    res.json({success: true});
   })
   .catch((err) => {
     console.log(err);
